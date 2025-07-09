@@ -78,17 +78,18 @@ function Home() {
   const handleAuthAction = () => {
     if (isLoggedIn) {
       // Logout logic
-      logout();
-      console.log('User logged out');
-    } else {
-      // Simple mock login - in real app, this would be a login form/modal
-      const mockUser = {
-        id: 1,
-        name: 'F1 Fan',
-        email: 'fan@boxbox.com'
+      // Prompt to make sure user wants to log out, if another click occurs within 2 seconds, log out
+
+      let logoutTimeout;
+      const confirmLogout = () => {
+        if (window.confirm('Are you sure you want to log out?')) {
+          logout();
+        }
       };
-      login(mockUser);
-      console.log('User logged in:', mockUser);
+      logoutTimeout = setTimeout(confirmLogout, 2000);
+      return () => clearTimeout(logoutTimeout);
+    } else {
+      // Let user know that login was unsuccessful
     }
   };
 
@@ -109,6 +110,9 @@ function Home() {
         <Link to="/" className="text-2xl font-bold text-gray-100 hover:text-white transition-colors duration-200">
           BoxBox
         </Link>        <div className="flex items-center space-x-4">
+          <Link to="/" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md">
+            Home
+          </Link>
           <Link to="/seasons" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md">
             Seasons
           </Link>
