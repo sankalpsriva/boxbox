@@ -13,9 +13,7 @@ ff.Cache.enable_cache('app/race_data/cache')
 # TODO: Implement the logic to get races by season
 @router.get("/races")
 def get_races_by_season(db: Session = Depends(get_db)) -> list:
-    # if not year:
-    #     raise HTTPException(status_code=400, detail="Season year must be provided")
-
+    
     events = ff.get_event_schedule(2023)
     races = []
     for index, name in enumerate(events["EventName"].unique()): 
@@ -26,7 +24,7 @@ def get_races_by_season(db: Session = Depends(get_db)) -> list:
 
     return races[1: ]
 
-# TODO: Implement the logic to fetch top three races
+@router.get("/top")
 def get_top_three_races(db: Session = Depends(get_db)) -> dict:
     """
     Fetch the top three races based on average rating.
@@ -34,5 +32,5 @@ def get_top_three_races(db: Session = Depends(get_db)) -> dict:
     return [
         {"id": 1, "name": "Monaco Grand Prix", "avg_rating": 4.8},
         {"id": 2, "name": "British Grand Prix", "avg_rating": 4.7},
-        {"id": 3, "name": "Japanese Grand Prix", "avg_rating": 4.6},
+        {"id": 3, "name": "Japanese Grand Prix", "avg_rating": 4.6}
     ]

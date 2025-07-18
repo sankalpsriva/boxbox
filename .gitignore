@@ -42,3 +42,6 @@ postgres_data/
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
+.md
+README-dev.md
+frontend/vite.config.ts
