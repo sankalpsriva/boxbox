@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import Home from './pages/Home';
 import Seasons from './pages/Seasons';
+import SeasonDetail from './pages/SeasonDetail';
 import Races from './pages/Races';
 import Drivers from './pages/Drivers';
 import Login from './pages/Login';
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/seasons" element={<Seasons />} />
+          <Route path="/seasons/:year" element={<SeasonDetail />} />
           <Route path="/races" element={<Races />} />
           <Route path="/drivers" element={<Drivers />} />
           <Route path="/login" element={<Login />} />

@@ -7,10 +7,8 @@ function Drivers() {
       {/* Header */}      <header className="flex justify-between items-center mb-8">
         <Link to="/" className="text-2xl font-bold text-gray-100 hover:text-white transition-colors duration-200">
           BoxBox 
-        </Link>        <div className="flex items-center space-x-4">
-          <Link to="/" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md">
-            Home
-          </Link>
+        </Link>        
+        <div className="flex items-center space-x-4">
           <Link to="/seasons" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md">
             Seasons
           </Link>

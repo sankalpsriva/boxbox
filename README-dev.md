@@ -169,7 +169,6 @@ docker-compose logs --tail=10 backend
 ### **Available Endpoints:**
 
 #### **Races API:**
-- `GET /api/v1/races` - Get all races (default: 2023)
 - `GET /api/v1/races?year=2024` - Get races for specific year
 - `GET /api/v1/races/top` - Get top-rated races
 - `GET /api/v1/races/top?limit=5` - Get top N races

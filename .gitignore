@@ -43,5 +43,4 @@ postgres_data/
 .cache
 .parcel-cache
 .md
-README-dev.md
 frontend/vite.config.ts
