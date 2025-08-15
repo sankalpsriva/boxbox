@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 function Seasons() {
   const navigate = useNavigate();
@@ -68,12 +65,8 @@ function Seasons() {
     <div className="min-h-screen bg-black text-white p-6">
       {/* Header */}
       <header className="flex justify-between items-center mb-8">
-      {/* Header */}
-      <header className="flex justify-between items-center mb-8">
         <Link to="/" className="text-2xl font-bold text-gray-100 hover:text-white transition-colors duration-200">
           BoxBox
-        </Link>
-        <div className="flex items-center space-x-4">
         </Link>
         <div className="flex items-center space-x-4">
           <button className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md bg-red-600">
@@ -96,7 +89,6 @@ function Seasons() {
 
       {/* Page Content */}
       <section className="text-center mb-12">
-        <div className="max-w-6xl mx-auto">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl font-bold text-white mb-6">
             F1 <span className="text-red-500">Seasons</span>
@@ -169,14 +161,6 @@ function Seasons() {
               </div>
             ))}
           </div>
-
-          {/* Loading State */}
-          {loading && (
-            <div className="mt-8 text-center">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-500 mx-auto mb-4"></div>
-              <p className="text-gray-400">Loading season data...</p>
-            </div>
-          )}
 
           {/* Loading State */}
           {loading && (

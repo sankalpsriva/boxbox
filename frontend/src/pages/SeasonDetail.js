@@ -114,10 +114,10 @@ function SeasonDetail() {
           </Link>
           <Link to="/login" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md border border-white">
             Login
-            </Link>
-            <Link to="/profile" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md bg-gray-600 cursor-not-allowed" disabled>
-                Profile
-            </Link>
+          </Link>
+          <Link to="/profile" className="px-4 py-2 text-white hover:bg-white hover:text-black transition-colors duration-200 rounded-md bg-gray-600 cursor-not-allowed" disabled>
+            Profile
+          </Link>
         </div>
       </header>
 
