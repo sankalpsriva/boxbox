@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 class Race(Base):
@@ -8,3 +9,6 @@ class Race(Base):
     name = Column(String, index=True)
     location = Column(String, index=True)
     date = Column(String, index=True)
+    
+    # Relationships
+    ratings = relationship("Rating", back_populates="race", cascade="all, delete-orphan")

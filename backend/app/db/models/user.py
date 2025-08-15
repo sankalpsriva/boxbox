@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 class User(Base):
@@ -8,3 +9,7 @@ class User(Base):
     username = Column(String, unique=True, nullable=False)
     email = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
+    is_verified = Column(Boolean, default=False)
+    
+    # Relationships
+    ratings = relationship("Rating", back_populates="user", cascade="all, delete-orphan")
