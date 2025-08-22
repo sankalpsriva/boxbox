@@ -44,3 +44,7 @@ postgres_data/
 .parcel-cache
 .md
 frontend/vite.config.ts
+
+# API Security
+backend/app/core/config.py
+backend/app/middleware/security.py

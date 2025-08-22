@@ -7,17 +7,12 @@ from app.schemas.driver import Driver, DriverCreate, DriverUpdate
 
 router = APIRouter()
 
-@router.get("/top", response_model=List[dict])
-def get_top_drivers(limit: int = 5, db: Session = Depends(get_db)):
-    """Get the top-rated drivers."""
-    return crud_driver.get_top_drivers(db, limit)
-
-@router.get("/", response_model=List[Driver])
+@router.get("/drivers", response_model=List[Driver])
 def get_all_drivers(db: Session = Depends(get_db)):
     """Get all drivers."""
     return crud_driver.get_all_drivers(db)
 
-@router.get("/{driver_id}", response_model=Driver)
+@router.get("/drivers/{driver_id}", response_model=Driver)
 def get_driver(driver_id: int, db: Session = Depends(get_db)):
     """Get a specific driver by ID."""
     driver = crud_driver.get_driver(db, driver_id)
@@ -28,7 +23,7 @@ def get_driver(driver_id: int, db: Session = Depends(get_db)):
         )
     return driver
 
-@router.post("/", response_model=Driver, status_code=status.HTTP_201_CREATED)
+@router.post("/driver", response_model=Driver, status_code=status.HTTP_201_CREATED)
 def create_driver(driver: DriverCreate, db: Session = Depends(get_db)):
     """Create a new driver."""
     # Check if driver with same name already exists
@@ -40,7 +35,7 @@ def create_driver(driver: DriverCreate, db: Session = Depends(get_db)):
         )
     return crud_driver.create_driver(db, driver)
 
-@router.put("/{driver_id}", response_model=Driver)
+@router.put("/driver/{driver_id}", response_model=Driver)
 def update_driver(driver_id: int, driver: DriverUpdate, db: Session = Depends(get_db)):
     """Update an existing driver."""
     db_driver = crud_driver.update_driver(db, driver_id, driver)
@@ -51,7 +46,7 @@ def update_driver(driver_id: int, driver: DriverUpdate, db: Session = Depends(ge
         )
     return db_driver
 
-@router.delete("/{driver_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/driver/{driver_id}", status_code=status.HTTP_204_NO_CONTENT)
 def delete_driver(driver_id: int, db: Session = Depends(get_db)):
     """Delete a driver."""
     success = crud_driver.delete_driver(db, driver_id)
